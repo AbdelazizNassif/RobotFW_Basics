@@ -9,19 +9,18 @@ Library  SeleniumLibrary
 ${title}=  @{searchGoogle}[1] - Google Search
 
 *** Test Cases ***
-Test trying dropdown list
+Test trying mouse actions
     [Tags]    DEBUG
     Open Browser  http://the-internet.herokuapp.com/javascript_alerts  @{browsers}[0]  alias=BrowserA
     Maximize Browser Window
-    Click Element  xpath://button[contains(text(), 'Click for JS Alert')]
-    Alert Should Be Present
+    Mouse Down  xpath://button[contains(text(), 'Click for JS Alert')]
     Sleep  2s
-    Click Element  xpath://button[contains(text(), 'Click for JS Confirm')]
+    Mouse Over  link:Elemental Selenium
     Sleep  2s
-    Handle Alert 	action=DISMISS
-    Click Element  xpath://button[contains(text(), 'Click for JS Prompt')]
+    Open Context Menu  link:Elemental Selenium
     Sleep  2s
-    Input Text Into Alert  textIntoAlert  action=ACCEPT
+    Go To  http://cookbook.seleniumacademy.com/DragDropDemo.html
+    Drag And Drop 	id:draggable 	id:droppable
     Sleep  2s
     Close Browser
 
